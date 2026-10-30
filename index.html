@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#161616">
+  <meta name="description" content="Zbuduj profil absolwenta fizyki z wybranych przedmiotów i wygeneruj drzewko kompetencji.">
+  <title>Kreator sylwetki absolwenta fizyki</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="#top" aria-label="Kreator sylwetki — początek strony">
+      <span class="brand-mark" aria-hidden="true">φ</span>
+      <span>Fizyka / kreator sylwetki</span>
+    </a>
+    <a class="masthead-link" href="#wynik">Przejdź do drzewka <span aria-hidden="true">↓</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Ścieżka kształcenia · semestry 4–7</p>
+        <h1 id="page-title">Zaprojektuj sylwetkę absolwenta</h1>
+      </div>
+      <p class="hero-copy">Nazwij profil, opisz jego mocne strony i wybierz przedmioty. Po prawej od razu zobaczysz drzewko kompetencji oraz gotowy zapis tekstowy.</p>
+    </section>
+
+    <div class="workspace">
+      <section class="builder" aria-labelledby="builder-title">
+        <div class="section-heading">
+          <span class="step">01</span>
+          <div>
+            <p class="eyebrow">Dane postaci</p>
+            <h2 id="builder-title">Zdefiniuj profil</h2>
+          </div>
+        </div>
+
+        <div class="profile-fields">
+          <label class="field">
+            <span>Nazwa sylwetki absolwenta</span>
+            <input id="profile-name" type="text" maxlength="80" placeholder="np. Fizyk danych kwantowych" autocomplete="off">
+          </label>
+          <label class="field">
+            <span>Opis sylwetki</span>
+            <textarea id="profile-description" rows="4" maxlength="600" placeholder="Opisz kompetencje, zainteresowania i przyszłą rolę absolwenta…"></textarea>
+            <small><span id="description-count">0</span>/600 znaków</small>
+          </label>
+        </div>
+
+        <div class="subjects-heading">
+          <div class="section-heading compact">
+            <span class="step">02</span>
+            <div>
+              <p class="eyebrow">Kompetencje</p>
+              <h2>Wybierz przedmioty</h2>
+            </div>
+          </div>
+          <p>Limit każdego bloku jest widoczny przy jego nazwie. Możesz wybrać mniej niż maksimum.</p>
+        </div>
+
+        <div id="subject-blocks" class="subject-blocks"></div>
+      </section>
+
+      <aside id="wynik" class="results" aria-labelledby="results-title">
+        <div class="results-sticky">
+          <div class="section-heading result-heading">
+            <span class="step inverted">03</span>
+            <div>
+              <p class="eyebrow light">Wynik</p>
+              <h2 id="results-title">Drzewko postaci</h2>
+            </div>
+          </div>
+
+          <div id="skill-tree" class="skill-tree" aria-live="polite"></div>
+
+          <div class="text-output-header">
+            <h3>Zapis tekstowy</h3>
+            <button id="copy-button" class="button primary" type="button">
+              <span>Skopiuj</span><span aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <pre id="profile-output" tabindex="0"></pre>
+          <p id="copy-status" class="status" role="status" aria-live="polite"></p>
+
+          <button id="reset-button" class="button ghost" type="button">Wyczyść wszystkie pola</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <span>Kreator sylwetki absolwenta fizyki</span>
+    <span>HTML · CSS · JavaScript</span>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
